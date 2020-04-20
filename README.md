@@ -1,7 +1,5 @@
 # Logstash Input Plugin for Centrify Identity Platform
 
-[![Gem Version](https://badge.fury.io/rb/logstash-input-centrifyidplatform.svg)](https://rubygems.org/gems/logstash-input-centrifyidplatform)
-
 For more detail on using the Centrify Identity Platform logstash plugin, see [instructions](INSTRUCTIONS.md).
 
 This is a plugin for [Logstash](https://github.com/elastic/logstash).
