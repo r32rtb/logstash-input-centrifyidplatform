@@ -219,6 +219,7 @@ class LogStash::Inputs::Centrifyidplatform < LogStash::Inputs::Base
     payload['logstash_host.name'] = @host
 
     event = LogStash::Event.new('message' => payload.to_json, 'host' => @host, '@timestamp' => payload['WhenOccurred'])
+    event.tag('centrifyidplatform')
     decorate(event)
     queue << event
   end
