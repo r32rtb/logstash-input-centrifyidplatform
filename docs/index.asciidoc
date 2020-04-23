@@ -1,0 +1,124 @@
+:plugin: centrifyidplatform
+:type: input
+:default_codec: json
+// Update header with plugin name and default codec
+
+///////////////////////////////////////////
+START - GENERATED VARIABLES, DO NOT EDIT!
+///////////////////////////////////////////
+:version: %VERSION%
+:release_date: %RELEASE_DATE%
+:changelog_url: %CHANGELOG_URL%
+:include_path: ../../../../logstash/docs/include
+///////////////////////////////////////////
+END - GENERATED VARIABLES, DO NOT EDIT!
+///////////////////////////////////////////
+
+[id="plugins-{type}s-{plugin}"]
+
+=== Centrify ID Platform input plugin
+
+include::{include_path}/plugin_header.asciidoc[]
+
+==== Description
+
+Centrify Identify Platform input plugin to query your Centrify PAS tenant for Events.  The plugin will query the given tenant every 5 minutes for events.  Each row returned from the query is added to the message field.  
+
+* @timestamp is replaced with WhenOccured
+
+* All null fields are removed
+
+* a "centrifyidplatform" tag is added
+
+// Format anchors and links to support generated ids for versioning
+// Sample anchor: [id="plugins-{type}s-{plugin}-setting_name"]
+// Sample link: <<plugins-{type}s-{plugin}-setting_name>>
+
+[id="plugins-{type}s-{plugin}-options"]
+==== Example Input Configuration Options
+
+[cols="<,<,<",options="header",]
+|=======================================================================
+|Setting |Input type|Required
+| <<plugins-{type}s-{plugin}-username>> |<<string,string>>|Yes
+| <<plugins-{type}s-{plugin}-password>> |<<password,password>>|Yes
+| <<plugins-{type}s-{plugin}-tenant>> |<<string,string>>|Yes
+| <<plugins-{type}s-{plugin}-oauthclient>> |<<string,string>>|Yes
+| <<plugins-{type}s-{plugin}-scope>> |<<string,string>>|Yes
+| <<plugins-{type}s-{plugin}-historyhrs>> |<<number,number>>|No
+| <<plugins-{type}s-{plugin}-historysearch>> |<<boolean,boolean>>|No
+| <<plugins-{type}s-{plugin}-debug>> |<<boolean,boolean>>|No
+|=======================================================================
+
+[id="plugins-{type}s-{plugin}-username"]
+===== `username` 
+
+  * Value type is <<string,string>>
+  * Default value is `{}`
+
+Username associated with the OAuth Client to access the Tenant
+
+[id="plugins-{type}s-{plugin}-password"]
+===== `password` 
+
+  * Value type is <<password,password>>
+  * Default value is '{}'
+
+Password associated with the User
+
+[id="plugins-{type}s-{plugin}-tenant"]
+===== `tenant` 
+
+  * Value type is <<string,string>>
+  * Default value is `{}`
+
+Your Centrify PAS Tenant hostname
+
+[id="plugins-{type}s-{plugin}-oauthclient"]
+===== `oauthclient` 
+
+  * Value type is <<string,string>>
+  * Default value is `{}`
+
+The OAuthclient name give for this configuration within Centrify PAS Web Apps
+
+[id="plugins-{type}s-{plugin}-scope"]
+===== `scope` 
+
+  * Value type is <<string,string>>
+  * Default value is 'siem'
+
+The scope name of the scope associated with the Redrock/query.* filter 
+
+[id="plugins-{type}s-{plugin}-historyhrs"]
+===== `historyhrs` 
+
+  * Value type is <<number,number>>
+  * Default value is '24'
+
+Number of hours to search for events from now.  Should be limited and may timeout if too large.
+
+[id="plugins-{type}s-{plugin}-historysearch"]
+===== `historysearch` 
+
+  * Value type is <<boolean,boolean>>
+  * Default value is 'false'
+
+Initial search to include number of hours defined by historyhrs.
+
+[id="plugins-{type}s-{plugin}-debug"]
+===== `debug` 
+
+  * Value type is <<boolean,boolean>>
+  * Default value is 'false'
+
+Additional output provided to the log including payloads of the request.  Should only be utilized for troubleshooting configs
+
+// The full list of Value Types is here: 
+// https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html
+
+[id="plugins-{type}s-{plugin}-common-options"]
+include::{include_path}/{type}.asciidoc[]
+
+:default_codec!:
+json
