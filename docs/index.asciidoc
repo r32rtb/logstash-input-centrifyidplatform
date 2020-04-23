@@ -1,6 +1,6 @@
 :plugin: centrifyidplatform
 :type: input
-:default_codec: json
+:default_codec: plain
 // Update header with plugin name and default codec
 
 ///////////////////////////////////////////
@@ -114,3 +114,4 @@ Initial search to include number of hours defined by historyhrs.
 
 Additional output provided to the log including payloads of the request.  Should only be utilized for troubleshooting configs
 
+:default_codec!:
