@@ -28,7 +28,7 @@ Centrify Identify Platform input plugin to query your Centrify PAS tenant for Ev
 
 * All null fields are removed
 
-* a "centrifyidplatform" tag is added
+* A "centrifyidplatform" tag is added
 
 // Format anchors and links to support generated ids for versioning
 // Sample anchor: [id="plugins-{type}s-{plugin}-setting_name"]
@@ -114,11 +114,3 @@ Initial search to include number of hours defined by historyhrs.
 
 Additional output provided to the log including payloads of the request.  Should only be utilized for troubleshooting configs
 
-// The full list of Value Types is here: 
-// https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html
-
-[id="plugins-{type}s-{plugin}-common-options"]
-include::{include_path}/{type}.asciidoc[]
-
-:default_codec!:
-json
