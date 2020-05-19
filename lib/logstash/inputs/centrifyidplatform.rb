@@ -132,6 +132,7 @@ class LogStash::Inputs::Centrifyidplatform < LogStash::Inputs::Base
   def post_request(queue, bearer_token)
     post = Net::HTTP::Post.new("#{@query_endpoint}")
     post["Authorization"] = "Bearer #{bearer_token}"
+    post['X-CENTRIFY-NATIVE-CLIENT'] = "True"
     post.body = JSON.generate({:Script => @eventquery})
     post['User-Agent'] = "logstash-centrifyidplatform/#{@version}"
     @logger.debug("Requesting query data: #{JSON.generate({:Script => @eventquery})}")
@@ -151,6 +152,7 @@ class LogStash::Inputs::Centrifyidplatform < LogStash::Inputs::Base
     login = Net::HTTP::Post.new(@token_endpoint)
     login['User-Agent'] = "logstash-centrifyidplatform/#{@version}"
     login['Content-Type'] = "application/x-www-form-urlencoded"
+    login['X-CENTRIFY-NATIVE-CLIENT'] = "True"
     credentials = Base64.strict_encode64 ("#{@username}:#{@password}")
     @logger.debug("Centrify Identity Platform login credentials: Basic #{credentials}")
     login["Authorization"] = "Basic #{credentials}"

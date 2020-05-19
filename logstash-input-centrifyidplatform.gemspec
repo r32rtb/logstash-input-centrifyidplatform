@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'logstash-input-centrifyidplatform'
-  s.version       = '1.0.0'
+  s.version       = '1.0.1'
   s.licenses      = ['Apache-2.0']
   s.summary       = 'Logstash input plugin for Centrify Identity Platform.'
   s.description   = 'Logstash input plugin for the Centrify Identity Platform RedRock/query feed endpoint https://developer.centrify.com/reference'
